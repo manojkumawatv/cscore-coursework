@@ -62,7 +62,7 @@ class Devide_Conquer {
     // Partition method
     public static int partition(int[] A, int p, int r) {
         int x = A[r]; // Pivot element
-        int i = p - 1; // Index of smaller element why?p-1: as i update before used
+        int i = p - 1; // track index of smaller element why?p-1: as i update before used
 
         for (int j = p; j < r; j++) {
             if (A[j] < x) {
@@ -73,7 +73,7 @@ class Devide_Conquer {
                 A[j] = temp;
             }
         }
-        // Swap pivot with element at i+1
+        // Swap pivot with element at i+1 & then return
         int temp = A[i + 1];
         A[i + 1] = A[r];
         A[r] = temp;
