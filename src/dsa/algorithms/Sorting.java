@@ -62,7 +62,7 @@ class Devide_Conquer {
     // Partition method
     public static int partition(int[] A, int p, int r) {
         int x = A[r]; // Pivot element
-        int i = p - 1; // Index of smaller element
+        int i = p - 1; // Index of smaller element why?p-1: as i update before used
 
         for (int j = p; j < r; j++) {
             if (A[j] < x) {
