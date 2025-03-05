@@ -59,7 +59,7 @@ class Devide_Conquer {
         merge(arr, l, mid, h);
         return arr;
     }
-    // Partition function
+    // Partition method
     public static int partition(int[] A, int p, int r) {
         int x = A[r]; // Pivot element
         int i = p - 1; // Index of smaller element
@@ -80,11 +80,12 @@ class Devide_Conquer {
 
         return i + 1; // Return partition index
     }
-    // Quicksort function
+    //QUICKSORT
     public static void quickSort(int[] A, int p, int r) {
         if (p < r) {
             int q = partition(A, p, r);
             quickSort(A, p, q - 1); // Sort left subarray
+            //excluded q as now it is on right place
             quickSort(A, q + 1, r); // Sort right subarray
         }
     }
