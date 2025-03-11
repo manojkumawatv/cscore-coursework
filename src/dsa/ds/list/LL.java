@@ -1,4 +1,4 @@
-package dsa.ds;
+package dsa.ds.list;
 
 class Node {
     int val;

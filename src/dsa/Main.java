@@ -1,6 +1,7 @@
 package dsa;
 import dsa.algorithms.*;
 import dsa.ds.*;
+import dsa.ds.list.*;
 
 public class Main {
     public static void main(String[] args) {
