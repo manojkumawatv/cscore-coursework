@@ -1,6 +1,7 @@
 package dsa;
 import dsa.algorithms.*;
 import dsa.ds.*;
+import dsa.ds.Queue;
 import dsa.ds.list.*;
 
 public class Main {
@@ -14,8 +15,8 @@ public class Main {
         // System.out.println(Arrays.toString(arr));
 
         // Queue q1=new Queue();
-        // q1.enqueue(7);
-        // q1.enqueue(8);
+        // q1.enqueue("Manoj");
+        // q1.enqueue("MKV");
         // q1.display();
         LL list=new LL();
         list.addAtHead(1);

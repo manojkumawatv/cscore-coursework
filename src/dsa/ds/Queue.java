@@ -10,6 +10,10 @@ public class Queue {
 		this.arr = new String[this.maxSize];
 	}
 
+	public Queue() {
+		//TODO Auto-generated constructor stub
+	}
+
 	public boolean isFull() {
 		if (rear == maxSize - 1) {
 			return true;
@@ -38,7 +42,7 @@ public class Queue {
 	}
 
 	public boolean isEmpty() {
-		if (front > rear)
+		if (front==-1)
 			return true;
 		return false;
 	}
