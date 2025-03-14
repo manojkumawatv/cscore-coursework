@@ -22,6 +22,9 @@ public class Main {
         list.addAtHead(1);
         list.addAtTail(5);
         list.display();
+        list.addAtHead(0);
+        list.addAtIndex(2, 9);
+        list.display();
 
         int search=Arrays.linearSearch(arr, 22);
         System.out.println(search);

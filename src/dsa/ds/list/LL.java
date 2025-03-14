@@ -5,6 +5,7 @@ class Node {
     Node next;
     Node(int val){
         this.val=val;
+        next=null;
     }
 }
 public class LL {
@@ -19,6 +20,7 @@ public class LL {
             System.out.print(curr.val+" ");
             curr=curr.next;
         }
+        System.out.println();
     }
     public int get(int index) {
         int i = 0;
@@ -71,10 +73,11 @@ public class LL {
         while (curr != null && i < index - 1) {
             i++;
             curr = curr.next;
-        } // node at i-1 th index
+        }
+        //Now: curr -> at given index-1
         if (curr == null) return; //IndexOutOfBounds
-        tmp.next = curr.next;
-        curr.next = tmp;
+        tmp.next=curr.next;
+        curr.next=tmp;
     }
 
     public void deleteAtIndex(int index) {
