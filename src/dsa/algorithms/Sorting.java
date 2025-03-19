@@ -41,12 +41,13 @@ class Devide_Conquer {
                 arr[k++] = rightArray[j++];
             }
         }
-        // Copy remaining elements of leftArray, if any
-        while(i < leftArray.length){
-            arr[k++] = leftArray[i++];
-        }
-        while(j < rightArray.length){
-            arr[k++] = rightArray[j++];
+        // Copy remaining elements of from eigther subArray
+        while(i < leftArray.length || j < rightArray.length){
+			if(i<leftArray.length){
+            	arr[k++] = leftArray[i++];
+			} else {
+				arr[k++] = rightArray[j++];
+			}
         }
     }
     public static int[] mergeSort(int[] arr, int l, int h){
