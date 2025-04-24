@@ -21,7 +21,7 @@ public class Arrays extends ArraySearch {
         }
         arr[index] = val;
     }
-    public String toString(){
+    public static String toString(int[] arr){
         System.out.print("[");
         for (int i : arr) {
             System.out.print(i+", ");

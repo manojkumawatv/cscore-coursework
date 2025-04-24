@@ -21,7 +21,7 @@ public class ArraySearch {
     public static int BinarySearch(int[] arr, int target) {
         int left = 0, right = arr.length - 1;
 
-        // = is edge i.e arr=[5], l=r
+        // = is edge i.e arr=[5], l=r we are seraching even if one element
         while (left <= right) {
             int mid = (left + right) / 2;
             if (target == arr[mid])
@@ -35,7 +35,22 @@ public class ArraySearch {
         }
         return -1;
     }
-    // Analysis
+    //Tail Recursion
+    public static int RBinarySearch(int[] arr, int l, int h, int target){
+        int mid;
+        if(l<=h) {
+            mid = l + (h - l) / 2;
+            if(arr[mid]==target){
+                return mid;
+            } else if(arr[mid]>target){
+                return RBinarySearch(arr, l, mid-1, target);
+            } else {
+                return RBinarySearch(arr, mid+1, h, target);
+            }
+        }
+        return -1; //key not found
+    }
+    // Analysis:
     // Initial Condition: left = 0, right = length-1
     // Termination: left > right
     // Searching Left: right = mid-1

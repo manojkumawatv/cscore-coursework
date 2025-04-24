@@ -41,7 +41,7 @@ class Devide_Conquer {
                 arr[k++] = rightArray[j++];
             }
         }
-        // Copy remaining elements of from eigther subArray
+        // append remaining elements of from eigther subArray
         while(i < leftArray.length || j < rightArray.length){
 			if(i<leftArray.length){
             	arr[k++] = leftArray[i++];
