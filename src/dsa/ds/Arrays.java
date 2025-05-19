@@ -29,6 +29,7 @@ public class Arrays extends ArraySearch {
         System.out.print("]");
         return "";
     }
+    //bit manipulation
     public int[][] powerSet(int[] arr) {
         int n = arr.length;
         int powerSetSize = (int) Math.pow(2, n);

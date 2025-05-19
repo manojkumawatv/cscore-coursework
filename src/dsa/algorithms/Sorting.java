@@ -51,13 +51,13 @@ class Devide_Conquer {
         }
     }
     public static int[] mergeSort(int[] arr, int l, int h){
-        if(l >= h){
-            return arr; // Base Case
+        if(l<h){
+        int mid = (l + h) / 2;    //Divide
+        //conquer
+        mergeSort(arr, l, mid); 
+        mergeSort(arr, mid+1, h);
+        merge(arr, l, mid, h);    //combine
         }
-        int mid = (l + h) / 2;
-        mergeSort(arr, l, mid);   //conquer
-        mergeSort(arr, mid+1, h); //conquer
-        merge(arr, l, mid, h);
         return arr;
     }
     // Partition method
