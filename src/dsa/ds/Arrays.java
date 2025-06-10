@@ -1,5 +1,5 @@
 package dsa.ds;
-import dsa.algorithms.ArraySearch;
+import dsa.algo.*;
 
 public class Arrays extends ArraySearch {
     int size; //capacity
@@ -30,7 +30,7 @@ public class Arrays extends ArraySearch {
         return "";
     }
     //bit manipulation
-    public int[][] powerSet(int[] arr) {
+    public int[][] powerSet() {
         int n = arr.length;
         int powerSetSize = (int) Math.pow(2, n);
         int[][] powerSet = new int[powerSetSize][];
@@ -51,5 +51,6 @@ public class Arrays extends ArraySearch {
         Arrays arr= new Arrays(nums);
         arr.insert(3,4);
         System.out.println(arr);
+        System.out.println(java.util.Arrays.toString((arr.powerSet())));
     }
 }

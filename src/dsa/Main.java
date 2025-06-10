@@ -1,7 +1,6 @@
 package dsa;
-import dsa.algorithms.*;
+import dsa.algo.*;
 import dsa.ds.*;
-import dsa.ds.Queue;
 import dsa.ds.list.*;
 
 public class Main {

@@ -1,5 +1,4 @@
-package dsa.algorithms;
-
+package dsa.algo;
 public class ArraySearch {
     // O(n)
     public static int linearSearch(int[] arr, int element) {

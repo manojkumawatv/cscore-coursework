@@ -1,6 +1,29 @@
-package dsa.algorithms;
+package dsa.algo;
 
 public class Sorting extends Devide_Conquer {
+    public static void swap(int[] elements, int firstIndex, int secondIndex) {
+		int tmp=elements[firstIndex];
+		elements[firstIndex]=elements[secondIndex];
+		elements[secondIndex]=tmp;
+	}
+    
+	public static int bubbleSort(int[] elements) {
+		int n = elements.length;
+        int noOfPasses=0;
+		for (int i = 0; i<n-1; i++) {
+			boolean swapped = false;
+			noOfPasses += 1;
+			for (int j = 0; j<n-i-1; j++) {
+				if (elements[j] > elements[j+1]) {
+					swap(elements, j, j+1);
+					swapped = true;
+				}
+			}
+			if (swapped == false)
+				break; // Best case-> O(n)
+		}
+		return noOfPasses;
+	}
 	public static int[] insertionSort(int[] arr){
         for(int i=1; i<arr.length; i++){
             int current=arr[i];

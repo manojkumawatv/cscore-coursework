@@ -1,4 +1,4 @@
-package dsa.algorithms;
+package dsa.algo;
 public class Sorting_{
     public static void countingSort(int[] arr){
         //find max
