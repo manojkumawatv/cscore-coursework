@@ -46,6 +46,23 @@ public class Arrays extends ArraySearch {
         }
         return powerSet;
     }
+    public static int[][] multiply(int arr1[][],int arr2[][]) {
+		if (arr1[0].length != arr2.length) {
+		    throw new IllegalArgumentException("Number of columns in arr1 must be equal to number of rows in arr2"); 
+		}
+        int m=arr1.length, n=arr2[0].length;
+        int p=arr2.length;
+		int[][] arr3=new int[m][n];
+		for(int i=0; i<m; i++){
+		    for(int j=0; j<n; j++){
+		        arr3[i][j]=0;
+		        for(int k=0; k<p; k++){
+		            arr3[i][j]+=arr1[i][k]*arr2[k][j];
+		        }
+		    }
+		}
+		return arr3;
+	}
     public static void main(String[] args) {
         int[] nums={1,2,3,4,5,6};
         Arrays arr= new Arrays(nums);
