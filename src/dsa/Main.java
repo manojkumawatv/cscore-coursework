@@ -28,5 +28,9 @@ public class Main {
         int search=Arrays.RBinarySearch(arr, 0, arr.length-1, 11);
         // int search=Arrays.linearSearch(arr, 4);
         System.out.println(search);
+
+        System.out.println();
+
+        System.out.println(new Backtrack().powerSet(new int[]{1,2,3}));
     }
 }
