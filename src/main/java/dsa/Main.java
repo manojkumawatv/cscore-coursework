@@ -2,6 +2,7 @@ package dsa;
 import dsa.algo.*;
 import dsa.ds.*;
 import dsa.ds.list.*;
+import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
@@ -30,7 +31,7 @@ public class Main {
         System.out.println(search);
 
         System.out.println();
-
-        System.out.println(new Backtrack().powerSet(new int[]{1,2,3}));
+        // System.out.println(new Backtrack().powerSet(new int[]{1,2,3}));
+        new Backtrack().getPermutation(new int[]{1,2,3,4,5}, new ArrayList<>());
     }
 }
