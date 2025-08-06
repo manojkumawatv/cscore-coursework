@@ -3,25 +3,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Backtrack {
-    private static int k;
+    private static int count;
     public Backtrack(){
-        k=1;
+        count=1;
     }
     public List<List<Integer>> powerSet(int[] arr) {
         List<List<Integer>> result = new ArrayList<>();
         powerSetHelper(arr, 0, new ArrayList<>(), result);
         return result;
     }
-    public void getPermutation(int[] nums, List<Integer> curr){
-        if(curr.size()==nums.length) {
-            System.out.println((k++)+": "+curr+", "); // k for unit testing at last; k=n!
+    // get set of k-Permutations of n nums
+    public void getPermutation(int[] nums, List<Integer> curr, boolean[] used, int k){ 
+        if(curr.size()==k) {
+            System.out.println((count++)+": "+curr+", "); // k for unit testing at last; k=nPr
             return;
         }
         for(int i=0; i<nums.length; i++){
-            if(!curr.contains(nums[i])) {
+            if(!used[i]) {
                 curr.add(nums[i]);
-                getPermutation(nums, curr);
-                curr.remove(curr.size()-1);
+                used[i]=true;
+                getPermutation(nums, curr, used, k);
+                curr.remove(curr.size()-1); used[i]=false;
             }
         }
     }
