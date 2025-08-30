@@ -16,10 +16,11 @@ public class Matrix {
         cols=n;
         setValues();
     }
-    Matrix(int m, int n){
+    public Matrix(int m, int n){
         arr=new int[m][n];
         rows=m;
         cols=n;
+        setValues();
     }
     public void setValues(){
         for(int i=0; i<rows; i++){
@@ -39,23 +40,62 @@ public class Matrix {
         }
     }
 
-    public Matrix getMul(Matrix m2){return null;}
-    public Matrix getCofactor(int r, int c) {
-        Matrix ans = new Matrix(rows - 1, cols - 1);
-        int m = 0, n = 0;
-        for (int i = 0; i < rows; i++) {
-            if (i == r) continue;
-            for (int j = 0; j < cols; j++) {
-                if (j != c) {
-                    ans.arr[m][n] = this.arr[i][j];
-                    n++;
+    // M Multiplication 
+    public Matrix getMul(Matrix m2){
+        // A[m*n] * B[n*p] ==> C[m*n]
+        int m=this.rows;
+        int n=m2.cols;
+        if(this.cols!=m2.rows){
+            throw new IllegalArgumentException("undefined: cols of Matrix A and rows of Matrix B should be same");
+        }
+        Matrix C=new Matrix(m, n);
+        for(int i=0; i<m; i++){
+            for(int j=0; j<n; j++){
+                for(int k=0; k<m2.rows; k++){
+                    C.arr[i][j]+=this.arr[i][k]*m2.arr[k][j];
                 }
             }
+        }
+
+        return C;
+    }
+    public Matrix getCofactor(int r, int c) {
+        int newRows = rows - 1;
+        int newCols = cols - 1;
+        Matrix ans = new Matrix(newRows, newCols);
+        int m = 0;
+        for (int i = 0; i < rows; i++) {
+            if(i == r) continue;
+            int n = 0;
+            for (int j = 0; j < cols; j++) {
+                if(j == c) continue;
+                ans.arr[m][n] = this.arr[i][j];
+                n++;
+            }
             m++;
-            n = 0;
         }
         return ans;
     }
-    public int det(){return 0;}
+    public int det() {
+        if (this.rows != this.cols) {
+            throw new IllegalArgumentException("Input Matrix should be Square");
+        }
+        if (this.rows == 1) {
+            return this.arr[0][0];
+        }
+        if (this.rows == 2) {
+            return this.arr[0][0] * this.arr[1][1]
+                 - this.arr[0][1] * this.arr[1][0];
+        }
 
+        int detMat = 0;
+
+        // det(A) = the sum of products of elements of a row (or a column) with corresponding co-factors * (i+j)^-1
+        for (int j = 0; j < this.cols; j++) {
+            Matrix cofactor = getCofactor(0, j);
+            int sign = (j % 2 == 0) ? 1 : -1;
+            detMat += sign * this.arr[0][j] * cofactor.det();
+        }
+        return detMat;
+    }
 }
