@@ -14,5 +14,6 @@ public class Main {
         // m1.getMul(m2).display();
 
         System.out.println(m1.det());
+        m1.inverse().display();
     }
 }
