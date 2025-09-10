@@ -1,26 +1,26 @@
 package utils;
 
 public class Matrix {
-    private int[][] arr;
+    private double[][] arr;
     private final int rows;
     private final int cols;
 
     Matrix() {
-        arr = new int[3][3];
+        arr = new double[3][3];
         rows = 3;
         cols = 3;
         setValues();
     }
 
     public Matrix(int n) {
-        arr = new int[n][n]; // square matrix
+        arr = new double[n][n]; // square matrix
         rows = n;
         cols = n;
         setValues();
     }
 
     public Matrix(int m, int n) {
-        arr = new int[m][n];
+        arr = new double[m][n];
         rows = m;
         cols = n;
         setValues();
@@ -29,7 +29,7 @@ public class Matrix {
     public void setValues() {
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
-                this.arr[i][j] = (int) (Math.random() * 10);
+                this.arr[i][j] = Math.random() * 10;
             }
         }
     }
@@ -76,6 +76,17 @@ public class Matrix {
         return ans;
     }
 
+    // scalar multiply with scalar
+    public Matrix multiply(double k) {
+        Matrix ans = new Matrix(rows, cols);
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                ans.arr[i][j] = k * this.arr[i][j];
+            }
+        }
+        return ans;
+    }
+
     public Matrix cofactor(int r, int c) {
         int newRows = rows - 1;
         int newCols = cols - 1;
@@ -96,7 +107,7 @@ public class Matrix {
         return ans;
     }
 
-    public int det() {
+    public double det() {
         if (this.rows != this.cols) {
             throw new IllegalArgumentException("Input Matrix should be Square");
         }
@@ -143,5 +154,14 @@ public class Matrix {
         }
         return Adj;
     }
-    
+
+    public Matrix inverse() {
+        double d=this.det();
+        if(d==0){
+            return null;
+        }
+        Matrix Inv= adjoint().multiply(1/d);
+        return Inv;
+    }
+
 }
